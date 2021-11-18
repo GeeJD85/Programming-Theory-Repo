@@ -132,6 +132,7 @@ GameObject:
   - component: {fileID: 3953139010918522049}
   - component: {fileID: -6973007788407348968}
   - component: {fileID: 7252180593499563523}
+  - component: {fileID: 2521487910485748618}
   m_Layer: 0
   m_Name: Chick
   m_TagString: Untagged
@@ -183,7 +184,7 @@ NavMeshAgent:
   m_GameObject: {fileID: 3953139010911151479}
   m_Enabled: 1
   m_AgentTypeID: 0
-  m_Radius: 0.5
+  m_Radius: 2
   m_Speed: 3.5
   m_Acceleration: 8
   avoidancePriority: 50
@@ -192,7 +193,7 @@ NavMeshAgent:
   m_AutoTraverseOffMeshLink: 1
   m_AutoBraking: 1
   m_AutoRepath: 1
-  m_Height: 0.5
+  m_Height: 6
   m_BaseOffset: 0
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
@@ -208,6 +209,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 194ffac6338eaf246895b5ded32b56a3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!65 &2521487910485748618
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3953139010911151479}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 3.2920651, y: 5.983812, z: 7.7283187}
+  m_Center: {x: 0.0000003311369, y: 2.9979606, z: 0.25878182}
 --- !u!1 &3953139010911159415
 GameObject:
   m_ObjectHideFlags: 0
