@@ -14,19 +14,22 @@ public abstract class Animal : MonoBehaviour
 
     private void Update()
     {
-        if(m_item != null)
-        {
-            float distance = Vector3.Distance(m_item.transform.position, transform.position);
+        if (m_item != null)
+            CalculateDistance();
+    }
 
-            if(distance < 1)
-            {
-                m_agent.isStopped = true;
-                ItemInRange();
-            }
+    protected private void CalculateDistance()
+    {
+        float distance = Vector3.Distance(m_item.transform.position, transform.position);
+
+        if (distance < 1.1f)
+        {
+            m_agent.isStopped = true;
+            ItemInRange();
         }
     }
 
-    public virtual void Goto(Vector3 position)
+    public virtual void GoTo(Vector3 position)
     {
         m_item = null;
         m_agent.SetDestination(position);

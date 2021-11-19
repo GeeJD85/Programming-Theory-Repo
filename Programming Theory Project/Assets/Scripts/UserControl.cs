@@ -3,14 +3,14 @@ using UnityEngine;
 public class UserControl : MonoBehaviour
 {
     public Camera gameCam;
-    Animal m_animal;
+    private Animal m_animal = null;
 
     void Update()
     {
         if(Input.GetMouseButtonDown(0))
             HandleSelection();
 
-        if (Input.GetMouseButtonDown(1))
+        else if (Input.GetMouseButtonDown(1) && m_animal != null)
             HandleActions();
     }
 
@@ -21,23 +21,28 @@ public class UserControl : MonoBehaviour
 
         if(Physics.Raycast(ray, out hit))
         {
-            var animal = hit.collider.GetComponent<Animal>();
+            var animal = hit.collider.GetComponentInParent<Animal>();
             m_animal = animal;
         }
     }
 
     protected void HandleActions()
     {
-        if(m_animal != null)
-        {
-            var ray = gameCam.ScreenPointToRay(Input.mousePosition);
-            RaycastHit hit;
+        var ray = gameCam.ScreenPointToRay(Input.mousePosition);
+        RaycastHit hit;
 
-            if(Physics.Raycast(ray, out hit))
+        if(Physics.Raycast(ray, out hit))
+        {
+            var item = hit.collider.GetComponentInParent<Item>();
+                
+            if(item != null)
             {
-                m_animal.Goto(hit.point);
+                m_animal.GoTo(item);
             }
-            
+            else
+            {
+                m_animal.GoTo(hit.point);
+            }
         }
     }
 }
