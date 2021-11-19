@@ -35,6 +35,7 @@ public class UserControl : MonoBehaviour
         {
             var item = hit.collider.GetComponentInParent<Item>();
                 
+            // OVERLOAD - decision between using Vector3 or Item
             if(item != null)
             {
                 m_animal.GoTo(item);

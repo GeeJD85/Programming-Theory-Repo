@@ -1,15 +1,17 @@
 using UnityEngine;
 
+// INHERITANCE - from Animal parent class
 public class Chick : Animal
 {
     // What to do if we selected world space as move target (optional)
     public override void GoTo(Vector3 position)
     {        
         base.GoTo(position);
+        
     }
 
     // What to do if we selected an item as move target (optional)
-    public override void GoTo(Item target)
+    public override void GoTo(Item target) // POLYMORPHISM
     {        
         if (target.m_itemType == Item.ItemType.Edible)
             m_agent.speed *= 2;

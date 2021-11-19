@@ -6,8 +6,17 @@ using UnityEditor;
 
 public class GameManager : MonoBehaviour
 {
+    // ENCAPSULATION - making the Instance read only with a get / private set
+    public static GameManager Instance { get; private set; }
+
     private void Awake()
     {
+        if(Instance != null)
+        {
+            Destroy(gameObject);
+            return;
+        }
+
         DontDestroyOnLoad(this);
     }
 
